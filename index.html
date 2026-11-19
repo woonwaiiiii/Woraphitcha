@@ -1,0 +1,759 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="เว็บแอพนำเสนอตัวเองของนางสาววรพิชชา พรมบัว"
+    />
+    <title>แอพนำเสนอตัวเอง | วรพิชชา พรมบัว</title>
+    <style>
+      :root {
+        color-scheme: light;
+        font-family: "Noto Sans Thai", "Tahoma", sans-serif;
+        font-synthesis: none;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        color: #382d26;
+        background: #fcf8f1;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        min-width: 320px;
+        min-height: 100vh;
+        margin: 0;
+        display: grid;
+        place-items: center;
+        padding: 48px 24px;
+        background:
+          radial-gradient(
+              circle,
+              rgb(154 109 37 / 9%) 1px,
+              transparent 1.5px
+            )
+            0 0 / 28px 28px,
+          radial-gradient(ellipse at 10% 12%, #f5e5c7 0, transparent 34%),
+          radial-gradient(ellipse at 92% 86%, #f2e7d8 0, transparent 32%),
+          #fcf8f1;
+      }
+
+      main {
+        position: relative;
+        width: min(100%, 1280px);
+        padding: 64px 52px;
+        text-align: center;
+        background: rgb(255 255 255 / 92%);
+        border: 1px solid #f0e5d5;
+        border-radius: 32px;
+        box-shadow:
+          0 28px 80px rgb(75 54 30 / 10%),
+          0 4px 14px rgb(75 54 30 / 4%);
+      }
+
+      main::before {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: 92px;
+        height: 7px;
+        content: "";
+        background: #d5aa55;
+        border-radius: 0 0 999px 999px;
+        transform: translateX(-50%);
+      }
+
+      h1 {
+        margin: 0 0 38px;
+        color: #493529;
+        font-size: clamp(32px, 4vw, 42px);
+        font-weight: 700;
+        line-height: 1.4;
+      }
+
+      h1::after {
+        margin-left: 10px;
+        color: #d5aa55;
+        font-size: 0.65em;
+        content: "✿";
+        vertical-align: 0.16em;
+      }
+
+      .intro-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) clamp(280px, 30vw, 360px);
+        align-items: start;
+        gap: 36px;
+        text-align: left;
+      }
+
+      .profile-content {
+        display: flex;
+        min-width: 0;
+        flex-direction: column;
+        gap: 26px;
+        padding: 30px;
+        background: #fffaf3;
+        border: 1px solid #f0e5d5;
+        border-radius: 24px;
+        box-shadow: 0 10px 28px rgb(75 54 30 / 5%);
+      }
+
+      .identity {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+
+      .identity-copy {
+        min-width: 0;
+      }
+
+      .profile-icon {
+        display: grid;
+        flex: 0 0 88px;
+        width: 88px;
+        height: 88px;
+        place-items: center;
+        overflow: hidden;
+        color: #9a6d25;
+        background: #fbf3e4;
+        border: 4px solid #d5aa55;
+        border-radius: 50%;
+        box-shadow:
+          0 0 0 5px #f7edda,
+          0 8px 18px rgb(75 54 30 / 10%);
+      }
+
+      .profile-icon img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .name,
+      .detail {
+        font-weight: 500;
+        line-height: 1.6;
+      }
+
+      .name {
+        margin: 0;
+        font-size: clamp(25px, 3vw, 35px);
+        text-align: left;
+        overflow-wrap: anywhere;
+      }
+
+      .detail {
+        margin: 0;
+        color: #665449;
+        font-size: clamp(20px, 2.3vw, 30px);
+        white-space: nowrap;
+      }
+
+      .details-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px 18px;
+      }
+
+      .favorite-faculty {
+        margin: 0;
+        padding: 16px 18px;
+        color: #665449;
+        font-size: clamp(20px, 2.3vw, 30px);
+        font-weight: 500;
+        line-height: 1.6;
+        background: #f8f0e3;
+        border-left: 3px solid #d5aa55;
+        border-radius: 0 16px 16px 0;
+      }
+
+      .album {
+        min-width: 0;
+        margin: 0;
+      }
+
+      .album-list {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+      }
+
+      .album-cover {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        gap: 12px;
+        margin: 0;
+        padding: 12px;
+        text-align: left;
+        list-style: none;
+        cursor: pointer;
+        background: #fffaf3;
+        border: 1px solid #eee0c9;
+        border-radius: 20px;
+        box-shadow: 0 8px 20px rgb(75 54 30 / 5%);
+        transition:
+          background-color 160ms ease,
+          border-color 160ms ease,
+          box-shadow 160ms ease,
+          transform 160ms ease;
+      }
+
+      .album-cover::-webkit-details-marker {
+        display: none;
+      }
+
+      .album-cover:hover {
+        background: #fff5e3;
+        border-color: #d5aa55;
+        box-shadow: 0 12px 24px rgb(75 54 30 / 9%);
+        transform: translateY(-3px);
+      }
+
+      .album-cover:focus-visible {
+        outline: 3px solid #9a6d25;
+        outline-offset: 4px;
+      }
+
+      .album-cover img {
+        width: 88px;
+        height: 88px;
+        flex: 0 0 88px;
+        object-fit: cover;
+        border: 3px solid #f0dfc0;
+        border-radius: 15px;
+      }
+
+      .album-cover-copy {
+        flex: 1;
+        min-width: 0;
+      }
+
+      .album-title {
+        display: block;
+        color: #493529;
+        font-size: 30px;
+        font-weight: 700;
+        line-height: 1.3;
+      }
+
+      .album-hint {
+        display: block;
+        margin-top: 4px;
+        color: #806b5c;
+        font-size: 13px;
+      }
+
+      .album-toggle {
+        color: #9a6d25;
+        font-size: 32px;
+        line-height: 1;
+      }
+
+      .album-toggle::before {
+        content: "+";
+      }
+
+      .album[open] .album-toggle::before {
+        content: "−";
+      }
+
+      .album-photos {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+        margin: 22px 0 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .album-photos li {
+        min-width: 0;
+      }
+
+      .album-actions {
+        margin-top: 16px;
+        text-align: left;
+      }
+
+      .add-photo-button {
+        padding: 9px 16px;
+        color: #493529;
+        font: inherit;
+        cursor: pointer;
+        background: #f5e5c7;
+        border: 1px solid #d5aa55;
+        border-radius: 999px;
+      }
+
+      .add-photo-button:hover {
+        background: #efdbb5;
+      }
+
+      .add-photo-button:focus-visible {
+        outline: 3px solid #9a6d25;
+        outline-offset: 3px;
+      }
+
+      .album-status {
+        min-height: 1.5em;
+        margin: 8px 0 0;
+        color: #665449;
+        font-size: 13px;
+      }
+
+      .photo-button {
+        display: block;
+        width: 100%;
+        padding: 0;
+        cursor: zoom-in;
+        background: none;
+        border: 0;
+        border-radius: 16px;
+      }
+
+      .photo-button:focus-visible {
+        outline: 3px solid #9a6d25;
+        outline-offset: 4px;
+      }
+
+      .album-photos img {
+        display: block;
+        width: 100%;
+        aspect-ratio: 1;
+        object-fit: cover;
+        border: 4px solid #fffaf3;
+        border-radius: 18px;
+        box-shadow: 0 6px 18px rgb(75 54 30 / 12%);
+        transition:
+          box-shadow 160ms ease,
+          transform 160ms ease;
+      }
+
+      .photo-button:hover img {
+        box-shadow: 0 10px 24px rgb(75 54 30 / 18%);
+        transform: translateY(-3px) scale(1.015);
+      }
+
+      .photo-name {
+        margin: 8px 0 0;
+        color: #665449;
+        font-size: 14px;
+        overflow-wrap: anywhere;
+      }
+
+      .photo-viewer {
+        width: min(92vw, 1100px);
+        max-width: none;
+        max-height: 92vh;
+        padding: 16px;
+        background: #fffaf1;
+        border: 1px solid #ead8b8;
+        border-radius: 18px;
+        box-shadow: 0 24px 70px rgb(0 0 0 / 35%);
+      }
+
+      .photo-viewer::backdrop {
+        background: rgb(32 24 18 / 78%);
+        backdrop-filter: blur(4px);
+      }
+
+      .photo-viewer form {
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: 12px;
+      }
+
+      .viewer-close {
+        padding: 8px 16px;
+        color: #493529;
+        font: inherit;
+        cursor: pointer;
+        background: #f5e5c7;
+        border: 1px solid #d5aa55;
+        border-radius: 999px;
+      }
+
+      .photo-viewer img {
+        display: block;
+        max-width: 100%;
+        max-height: calc(92vh - 90px);
+        margin: 0 auto;
+        object-fit: contain;
+        border: 3px solid #d5aa55;
+        border-radius: 12px;
+      }
+
+      @media (max-width: 700px) {
+        body {
+          padding: 32px 18px;
+        }
+
+        .intro-layout {
+          grid-template-columns: minmax(0, 1fr);
+          gap: 28px;
+        }
+      }
+
+      @media (max-width: 540px) {
+        main {
+          padding: 48px 18px 28px;
+          border-radius: 26px;
+        }
+
+        .profile-content {
+          padding: 24px 18px;
+          border-radius: 20px;
+        }
+
+        h1 {
+          margin-bottom: 32px;
+          font-size: 34px;
+        }
+
+        .identity {
+          flex-direction: column;
+          gap: 18px;
+        }
+
+        .name {
+          font-size: clamp(25px, 7vw, 35px);
+        }
+
+        .identity-copy {
+          text-align: center;
+        }
+
+        .details-row {
+          justify-content: center;
+          gap: 6px 12px;
+        }
+
+        .detail {
+          font-size: clamp(18px, 5vw, 24px);
+        }
+
+        .favorite-faculty {
+          font-size: clamp(18px, 5vw, 24px);
+        }
+
+        .album-title {
+          font-size: clamp(24px, 7vw, 30px);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>แอพนำเสนอตัวเอง</h1>
+      <section class="intro-layout" aria-label="ข้อมูลแนะนำตัว">
+        <div class="profile-content">
+          <div class="identity">
+            <span class="profile-icon" role="img" aria-label="ไอคอนรูปโปรไฟล์">
+              <img src="IMG_0422.jpeg" alt="" />
+            </span>
+            <div class="identity-copy">
+              <p class="name">นางสาววรพิชชา พรมบัว</p>
+              <div class="details-row">
+                <p class="detail">ชั้น มัธยมศึกษาปีที่ 6/3</p>
+                <p class="detail">เลขที่ 17</p>
+              </div>
+            </div>
+          </div>
+          <p class="favorite-faculty">
+            คณะที่ชอบ คือ คณะวิทยาศาสตร์และเทคโนโลยี<br />
+            สาขาคณิตศาสตร์ประยุกต์
+          </p>
+        </div>
+        <div class="album-list">
+          <details class="album" data-album-id="my-photos">
+            <summary class="album-cover">
+              <img src="IMG_0449.jpeg" alt="" />
+              <span class="album-cover-copy">
+                <span class="album-title">รูปภาพของฉัน</span>
+                <span class="album-hint" data-photo-count>4 รูปภาพ · กดเพื่อเปิดอัลบั้ม</span>
+              </span>
+              <span class="album-toggle" aria-hidden="true"></span>
+            </summary>
+            <ul class="album-photos" aria-label="รูปภาพในอัลบั้มของฉัน">
+              <li>
+                <button class="photo-button" type="button" aria-label="ขยายรูปภาพ IMG_0422.jpeg">
+                  <img src="IMG_0422.jpeg" alt="รูปภาพ IMG_0422.jpeg" />
+                </button>
+                <p class="photo-name">IMG_0422.jpeg</p>
+              </li>
+              <li>
+                <button class="photo-button" type="button" aria-label="ขยายรูปภาพ IMG_0449.jpeg">
+                  <img src="IMG_0449.jpeg" alt="รูปภาพ IMG_0449.jpeg" />
+                </button>
+                <p class="photo-name">IMG_0449.jpeg</p>
+              </li>
+              <li>
+                <button class="photo-button" type="button" aria-label="ขยายรูปภาพ IMG_0829.jpeg">
+                  <img src="IMG_0829.jpeg" alt="รูปภาพ IMG_0829.jpeg" />
+                </button>
+                <p class="photo-name">IMG_0829.jpeg</p>
+              </li>
+              <li>
+                <button class="photo-button" type="button" aria-label="ขยายรูปภาพ IMG_0953.jpeg">
+                  <img src="IMG_0953.jpeg" alt="รูปภาพ IMG_0953.jpeg" />
+                </button>
+                <p class="photo-name">IMG_0953.jpeg</p>
+              </li>
+            </ul>
+            <div class="album-actions">
+              <button class="add-photo-button" type="button" aria-label="เพิ่มรูปภาพในอัลบั้มรูปภาพของฉัน">+ เพิ่มรูปภาพ</button>
+              <input class="album-file-input" type="file" accept="image/*" multiple hidden />
+              <p class="album-status" role="status" aria-live="polite"></p>
+            </div>
+          </details>
+          <details class="album" data-album-id="favorite-photos">
+            <summary class="album-cover">
+              <img src="0.1.jpg" alt="" />
+              <span class="album-cover-copy">
+                <span class="album-title">สิ่งที่ฉันชอบ</span>
+                <span class="album-hint" data-photo-count>5 รูปภาพ · กดเพื่อเปิดอัลบั้ม</span>
+              </span>
+              <span class="album-toggle" aria-hidden="true"></span>
+            </summary>
+            <ul class="album-photos" aria-label="รูปภาพในอัลบั้มสิ่งที่ฉันชอบ">
+              <li>
+                <button class="photo-button" type="button" aria-label="ขยายรูปภาพ 0.1.jpg">
+                  <img src="0.1.jpg" alt="รูปภาพ 0.1.jpg" />
+                </button>
+                <p class="photo-name">0.1.jpg</p>
+              </li>
+              <li>
+                <button class="photo-button" type="button" aria-label="ขยายรูปภาพ 0.2.jpg">
+                  <img src="0.2.jpg" alt="รูปภาพ 0.2.jpg" />
+                </button>
+                <p class="photo-name">0.2.jpg</p>
+              </li>
+              <li>
+                <button class="photo-button" type="button" aria-label="ขยายรูปภาพ 0.3.jpg">
+                  <img src="0.3.jpg" alt="รูปภาพ 0.3.jpg" />
+                </button>
+                <p class="photo-name">0.3.jpg</p>
+              </li>
+              <li>
+                <button class="photo-button" type="button" aria-label="ขยายรูปภาพ 0.4.jpg">
+                  <img src="0.4.jpg" alt="รูปภาพ 0.4.jpg" />
+                </button>
+                <p class="photo-name">0.4.jpg</p>
+              </li>
+              <li>
+                <button class="photo-button" type="button" aria-label="ขยายรูปภาพ 0.5.jpg">
+                  <img src="0.5.jpg" alt="รูปภาพ 0.5.jpg" />
+                </button>
+                <p class="photo-name">0.5.jpg</p>
+              </li>
+            </ul>
+            <div class="album-actions">
+              <button class="add-photo-button" type="button" aria-label="เพิ่มรูปภาพในอัลบั้มสิ่งที่ฉันชอบ">+ เพิ่มรูปภาพ</button>
+              <input class="album-file-input" type="file" accept="image/*" multiple hidden />
+              <p class="album-status" role="status" aria-live="polite"></p>
+            </div>
+          </details>
+        </div>
+      </section>
+      <dialog class="photo-viewer" aria-label="ดูรูปภาพขนาดใหญ่">
+        <form method="dialog">
+          <button class="viewer-close" type="submit">ปิด</button>
+        </form>
+        <img alt="" />
+      </dialog>
+    </main>
+    <script>
+      const photoViewer = document.querySelector(".photo-viewer");
+      const photoViewerImage = photoViewer.querySelector("img");
+      const albums = [...document.querySelectorAll(".album")];
+      const photoDatabaseName = "woraphitcha-photo-albums";
+
+      function updateAlbumCount(album) {
+        const photoCount = album.querySelectorAll(".album-photos li").length;
+        album.querySelector("[data-photo-count]").textContent =
+          `${photoCount} รูปภาพ · กดเพื่อเปิดอัลบั้ม`;
+      }
+
+      function createPhotoElement(name, source) {
+        const item = document.createElement("li");
+        const button = document.createElement("button");
+        const image = document.createElement("img");
+        const caption = document.createElement("p");
+
+        button.className = "photo-button";
+        button.type = "button";
+        button.setAttribute("aria-label", `ขยายรูปภาพ ${name}`);
+        image.src = source;
+        image.alt = `รูปภาพ ${name}`;
+        caption.className = "photo-name";
+        caption.textContent = name;
+        button.append(image);
+        item.append(button, caption);
+        return item;
+      }
+
+      function openPhotoDatabase() {
+        return new Promise((resolve, reject) => {
+          if (!("indexedDB" in window)) {
+            reject(new Error("เบราว์เซอร์นี้ไม่รองรับการบันทึกรูปภาพ"));
+            return;
+          }
+
+          const request = indexedDB.open(photoDatabaseName, 1);
+          request.onupgradeneeded = () => {
+            const store = request.result.createObjectStore("photos", {
+              keyPath: "id",
+              autoIncrement: true,
+            });
+            store.createIndex("albumId", "albumId");
+          };
+          request.onsuccess = () => {
+            request.result.onversionchange = () => request.result.close();
+            resolve(request.result);
+          };
+          request.onerror = () => {
+            reject(request.error ?? new Error("ไม่สามารถเปิดพื้นที่จัดเก็บรูปภาพได้"));
+          };
+        });
+      }
+
+      function getSavedPhotos(database, albumId) {
+        return new Promise((resolve, reject) => {
+          const transaction = database.transaction("photos", "readonly");
+          const request = transaction
+            .objectStore("photos")
+            .index("albumId")
+            .getAll(albumId);
+          request.onsuccess = () => resolve(request.result);
+          request.onerror = () => {
+            reject(request.error ?? new Error("ไม่สามารถโหลดรูปภาพที่บันทึกไว้ได้"));
+          };
+        });
+      }
+
+      function savePhotos(database, albumId, files) {
+        return new Promise((resolve, reject) => {
+          const transaction = database.transaction("photos", "readwrite");
+          const store = transaction.objectStore("photos");
+          const savedPhotos = [];
+
+          files.forEach((file) => {
+            const request = store.add({ albumId, name: file.name, image: file });
+            request.onsuccess = () => {
+              savedPhotos.push({
+                id: request.result,
+                name: file.name,
+                image: file,
+              });
+            };
+          });
+
+          transaction.oncomplete = () => resolve(savedPhotos);
+          transaction.onabort = () => {
+            reject(transaction.error ?? new Error("ไม่สามารถบันทึกรูปภาพได้"));
+          };
+          transaction.onerror = () => {
+            reject(transaction.error ?? new Error("ไม่สามารถบันทึกรูปภาพได้"));
+          };
+        });
+      }
+
+      function showSavedPhoto(album, photo) {
+        const imageUrl = URL.createObjectURL(photo.image);
+        album.querySelector(".album-photos").append(
+          createPhotoElement(photo.name, imageUrl),
+        );
+        updateAlbumCount(album);
+      }
+
+      const databaseReady = openPhotoDatabase()
+        .then(async (database) => {
+          await Promise.all(
+            albums.map(async (album) => {
+              const savedPhotos = await getSavedPhotos(
+                database,
+                album.dataset.albumId,
+              );
+              savedPhotos.forEach((photo) => showSavedPhoto(album, photo));
+            }),
+          );
+          return database;
+        })
+        .catch((error) => {
+          albums.forEach((album) => {
+            album.querySelector(".add-photo-button").disabled = true;
+            album.querySelector(".album-status").textContent = error.message;
+          });
+          return null;
+        });
+
+      albums.forEach((album) => {
+        const addButton = album.querySelector(".add-photo-button");
+        const fileInput = album.querySelector(".album-file-input");
+        const status = album.querySelector(".album-status");
+
+        addButton.addEventListener("click", () => fileInput.click());
+        fileInput.addEventListener("change", async () => {
+          const files = [...fileInput.files];
+          fileInput.value = "";
+          if (files.length === 0) return;
+
+          const imageFiles = files.filter((file) => file.type.startsWith("image/"));
+          if (imageFiles.length !== files.length) {
+            status.textContent = "เลือกได้เฉพาะไฟล์รูปภาพ";
+          } else {
+            status.textContent = "กำลังบันทึกรูปภาพ...";
+          }
+          if (imageFiles.length === 0) return;
+
+          addButton.disabled = true;
+          let database;
+          try {
+            database = await databaseReady;
+            if (!database) {
+              throw new Error("ไม่สามารถเปิดพื้นที่จัดเก็บรูปภาพได้");
+            }
+            const savedPhotos = await savePhotos(
+              database,
+              album.dataset.albumId,
+              imageFiles,
+            );
+            savedPhotos.forEach((photo) => showSavedPhoto(album, photo));
+            status.textContent =
+              imageFiles.length === files.length
+                ? `เพิ่มรูปภาพแล้ว ${imageFiles.length} รูป`
+                : `เพิ่มรูปภาพแล้ว ${imageFiles.length} รูป ไฟล์ที่ไม่ใช่รูปภาพถูกข้าม`;
+          } catch (error) {
+            status.textContent = `บันทึกรูปภาพไม่สำเร็จ: ${error.message}`;
+          } finally {
+            addButton.disabled = !database;
+          }
+        });
+      });
+
+      document.addEventListener("click", (event) => {
+        const button = event.target.closest(".photo-button");
+        if (!button) return;
+
+        const thumbnail = button.querySelector("img");
+        photoViewerImage.src = thumbnail.src;
+        photoViewerImage.alt = thumbnail.alt;
+        photoViewer.showModal();
+      });
+
+      photoViewer.addEventListener("click", (event) => {
+        if (event.target === photoViewer) {
+          photoViewer.close();
+        }
+      });
+    </script>
+  </body>
+</html>
