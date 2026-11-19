@@ -92,6 +92,13 @@
         text-align: left;
       }
 
+      .profile-list {
+        display: flex;
+        min-width: 0;
+        flex-direction: column;
+        gap: 18px;
+      }
+
       .profile-content {
         display: flex;
         min-width: 0;
@@ -185,6 +192,19 @@
         gap: 18px;
       }
 
+      .album-group {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .album-group-title {
+        margin: 0;
+        color: #806b5c;
+        font-size: 17px;
+        font-weight: 600;
+      }
+
       .album-cover {
         display: flex;
         width: 100%;
@@ -228,6 +248,19 @@
         flex: 0 0 88px;
         object-fit: cover;
         border: 3px solid #f0dfc0;
+        border-radius: 15px;
+      }
+
+      .album-placeholder {
+        display: grid;
+        width: 88px;
+        height: 88px;
+        flex: 0 0 88px;
+        place-items: center;
+        color: #9a6d25;
+        font-size: 30px;
+        background: #f8f0e3;
+        border: 2px dashed #d5aa55;
         border-radius: 15px;
       }
 
@@ -454,113 +487,168 @@
     <main>
       <h1>แอพนำเสนอตัวเอง</h1>
       <section class="intro-layout" aria-label="ข้อมูลแนะนำตัว">
-        <div class="profile-content">
-          <div class="identity">
-            <span class="profile-icon" role="img" aria-label="ไอคอนรูปโปรไฟล์">
-              <img src="IMG_0422.jpeg" alt="" />
-            </span>
-            <div class="identity-copy">
-              <p class="name">นางสาววรพิชชา พรมบัว</p>
-              <div class="details-row">
-                <p class="detail">ชั้น มัธยมศึกษาปีที่ 6/3</p>
-                <p class="detail">เลขที่ 17</p>
+        <div class="profile-list">
+          <div class="profile-content">
+            <div class="identity">
+              <span class="profile-icon" role="img" aria-label="ไอคอนรูปโปรไฟล์">
+                <img src="IMG_0422.jpeg" alt="" />
+              </span>
+              <div class="identity-copy">
+                <p class="name">นางสาววรพิชชา พรมบัว</p>
+                <div class="details-row">
+                  <p class="detail">ชั้น มัธยมศึกษาปีที่ 6/3</p>
+                  <p class="detail">เลขที่ 17</p>
+                </div>
               </div>
             </div>
+            <p class="favorite-faculty">
+              คณะที่ชอบ คือ คณะวิทยาศาสตร์และเทคโนโลยี<br />
+              สาขาคณิตศาสตร์ประยุกต์
+            </p>
           </div>
-          <p class="favorite-faculty">
-            คณะที่ชอบ คือ คณะวิทยาศาสตร์และเทคโนโลยี<br />
-            สาขาคณิตศาสตร์ประยุกต์
-          </p>
+          <div class="profile-content">
+            <div class="identity">
+              <span class="profile-icon" role="img" aria-label="รูปโปรไฟล์นายบวรเกียรติ">
+                <img src="n6.png" alt="" />
+              </span>
+              <div class="identity-copy">
+                <p class="name">นายบวรเกียรติ สืบพันธุ์ดี</p>
+                <div class="details-row">
+                  <p class="detail">ชั้น มัธยมศึกษาปีที่ 6/3</p>
+                  <p class="detail">เลขที่ 3</p>
+                </div>
+              </div>
+            </div>
+            <p class="favorite-faculty">คณะที่ชอบ คือ วิศวกรรมศาสตร์</p>
+          </div>
         </div>
         <div class="album-list">
-          <details class="album" data-album-id="my-photos">
-            <summary class="album-cover">
-              <img src="IMG_0449.jpeg" alt="" />
-              <span class="album-cover-copy">
-                <span class="album-title">รูปภาพของฉัน</span>
-                <span class="album-hint" data-photo-count>4 รูปภาพ · กดเพื่อเปิดอัลบั้ม</span>
-              </span>
-              <span class="album-toggle" aria-hidden="true"></span>
-            </summary>
-            <ul class="album-photos" aria-label="รูปภาพในอัลบั้มของฉัน">
-              <li>
-                <button class="photo-button" type="button" aria-label="ขยายรูปภาพ IMG_0422.jpeg">
-                  <img src="IMG_0422.jpeg" alt="รูปภาพ IMG_0422.jpeg" />
-                </button>
-                <p class="photo-name">IMG_0422.jpeg</p>
-              </li>
-              <li>
-                <button class="photo-button" type="button" aria-label="ขยายรูปภาพ IMG_0449.jpeg">
-                  <img src="IMG_0449.jpeg" alt="รูปภาพ IMG_0449.jpeg" />
-                </button>
-                <p class="photo-name">IMG_0449.jpeg</p>
-              </li>
-              <li>
-                <button class="photo-button" type="button" aria-label="ขยายรูปภาพ IMG_0829.jpeg">
-                  <img src="IMG_0829.jpeg" alt="รูปภาพ IMG_0829.jpeg" />
-                </button>
-                <p class="photo-name">IMG_0829.jpeg</p>
-              </li>
-              <li>
-                <button class="photo-button" type="button" aria-label="ขยายรูปภาพ IMG_0953.jpeg">
-                  <img src="IMG_0953.jpeg" alt="รูปภาพ IMG_0953.jpeg" />
-                </button>
-                <p class="photo-name">IMG_0953.jpeg</p>
-              </li>
-            </ul>
-            <div class="album-actions">
-              <button class="add-photo-button" type="button" aria-label="เพิ่มรูปภาพในอัลบั้มรูปภาพของฉัน">+ เพิ่มรูปภาพ</button>
-              <input class="album-file-input" type="file" accept="image/*" multiple hidden />
-              <p class="album-status" role="status" aria-live="polite"></p>
-            </div>
-          </details>
-          <details class="album" data-album-id="favorite-photos">
-            <summary class="album-cover">
-              <img src="0.1.jpg" alt="" />
-              <span class="album-cover-copy">
-                <span class="album-title">สิ่งที่ฉันชอบ</span>
-                <span class="album-hint" data-photo-count>5 รูปภาพ · กดเพื่อเปิดอัลบั้ม</span>
-              </span>
-              <span class="album-toggle" aria-hidden="true"></span>
-            </summary>
-            <ul class="album-photos" aria-label="รูปภาพในอัลบั้มสิ่งที่ฉันชอบ">
-              <li>
-                <button class="photo-button" type="button" aria-label="ขยายรูปภาพ 0.1.jpg">
-                  <img src="0.1.jpg" alt="รูปภาพ 0.1.jpg" />
-                </button>
-                <p class="photo-name">0.1.jpg</p>
-              </li>
-              <li>
-                <button class="photo-button" type="button" aria-label="ขยายรูปภาพ 0.2.jpg">
-                  <img src="0.2.jpg" alt="รูปภาพ 0.2.jpg" />
-                </button>
-                <p class="photo-name">0.2.jpg</p>
-              </li>
-              <li>
-                <button class="photo-button" type="button" aria-label="ขยายรูปภาพ 0.3.jpg">
-                  <img src="0.3.jpg" alt="รูปภาพ 0.3.jpg" />
-                </button>
-                <p class="photo-name">0.3.jpg</p>
-              </li>
-              <li>
-                <button class="photo-button" type="button" aria-label="ขยายรูปภาพ 0.4.jpg">
-                  <img src="0.4.jpg" alt="รูปภาพ 0.4.jpg" />
-                </button>
-                <p class="photo-name">0.4.jpg</p>
-              </li>
-              <li>
-                <button class="photo-button" type="button" aria-label="ขยายรูปภาพ 0.5.jpg">
-                  <img src="0.5.jpg" alt="รูปภาพ 0.5.jpg" />
-                </button>
-                <p class="photo-name">0.5.jpg</p>
-              </li>
-            </ul>
-            <div class="album-actions">
-              <button class="add-photo-button" type="button" aria-label="เพิ่มรูปภาพในอัลบั้มสิ่งที่ฉันชอบ">+ เพิ่มรูปภาพ</button>
-              <input class="album-file-input" type="file" accept="image/*" multiple hidden />
-              <p class="album-status" role="status" aria-live="polite"></p>
-            </div>
-          </details>
+          <div class="album-group" aria-labelledby="woraphitcha-albums">
+            <h2 class="album-group-title" id="woraphitcha-albums">อัลบั้มของวรพิชชา</h2>
+            <details class="album" data-album-id="my-photos">
+              <summary class="album-cover">
+                <img src="IMG_0449.jpeg" alt="" />
+                <span class="album-cover-copy">
+                  <span class="album-title">รูปภาพของฉัน</span>
+                  <span class="album-hint" data-photo-count>4 รูปภาพ · กดเพื่อเปิดอัลบั้ม</span>
+                </span>
+                <span class="album-toggle" aria-hidden="true"></span>
+              </summary>
+              <ul class="album-photos" aria-label="รูปภาพในอัลบั้มของฉัน">
+                <li>
+                  <button class="photo-button" type="button" aria-label="ขยายรูปภาพ IMG_0422.jpeg">
+                    <img src="IMG_0422.jpeg" alt="รูปภาพ IMG_0422.jpeg" />
+                  </button>
+                  <p class="photo-name">IMG_0422.jpeg</p>
+                </li>
+                <li>
+                  <button class="photo-button" type="button" aria-label="ขยายรูปภาพ IMG_0449.jpeg">
+                    <img src="IMG_0449.jpeg" alt="รูปภาพ IMG_0449.jpeg" />
+                  </button>
+                  <p class="photo-name">IMG_0449.jpeg</p>
+                </li>
+                <li>
+                  <button class="photo-button" type="button" aria-label="ขยายรูปภาพ IMG_0829.jpeg">
+                    <img src="IMG_0829.jpeg" alt="รูปภาพ IMG_0829.jpeg" />
+                  </button>
+                  <p class="photo-name">IMG_0829.jpeg</p>
+                </li>
+                <li>
+                  <button class="photo-button" type="button" aria-label="ขยายรูปภาพ IMG_0953.jpeg">
+                    <img src="IMG_0953.jpeg" alt="รูปภาพ IMG_0953.jpeg" />
+                  </button>
+                  <p class="photo-name">IMG_0953.jpeg</p>
+                </li>
+              </ul>
+              <div class="album-actions">
+                <button class="add-photo-button" type="button" aria-label="เพิ่มรูปภาพในอัลบั้มรูปภาพของฉัน">+ เพิ่มรูปภาพ</button>
+                <input class="album-file-input" type="file" accept="image/*" multiple hidden />
+                <p class="album-status" role="status" aria-live="polite"></p>
+              </div>
+            </details>
+            <details class="album" data-album-id="favorite-photos">
+              <summary class="album-cover">
+                <img src="0.1.jpg" alt="" />
+                <span class="album-cover-copy">
+                  <span class="album-title">สิ่งที่ฉันชอบ</span>
+                  <span class="album-hint" data-photo-count>5 รูปภาพ · กดเพื่อเปิดอัลบั้ม</span>
+                </span>
+                <span class="album-toggle" aria-hidden="true"></span>
+              </summary>
+              <ul class="album-photos" aria-label="รูปภาพในอัลบั้มสิ่งที่ฉันชอบ">
+                <li>
+                  <button class="photo-button" type="button" aria-label="ขยายรูปภาพ 0.1.jpg">
+                    <img src="0.1.jpg" alt="รูปภาพ 0.1.jpg" />
+                  </button>
+                  <p class="photo-name">0.1.jpg</p>
+                </li>
+                <li>
+                  <button class="photo-button" type="button" aria-label="ขยายรูปภาพ 0.2.jpg">
+                    <img src="0.2.jpg" alt="รูปภาพ 0.2.jpg" />
+                  </button>
+                  <p class="photo-name">0.2.jpg</p>
+                </li>
+                <li>
+                  <button class="photo-button" type="button" aria-label="ขยายรูปภาพ 0.3.jpg">
+                    <img src="0.3.jpg" alt="รูปภาพ 0.3.jpg" />
+                  </button>
+                  <p class="photo-name">0.3.jpg</p>
+                </li>
+                <li>
+                  <button class="photo-button" type="button" aria-label="ขยายรูปภาพ 0.4.jpg">
+                    <img src="0.4.jpg" alt="รูปภาพ 0.4.jpg" />
+                  </button>
+                  <p class="photo-name">0.4.jpg</p>
+                </li>
+                <li>
+                  <button class="photo-button" type="button" aria-label="ขยายรูปภาพ 0.5.jpg">
+                    <img src="0.5.jpg" alt="รูปภาพ 0.5.jpg" />
+                  </button>
+                  <p class="photo-name">0.5.jpg</p>
+                </li>
+              </ul>
+              <div class="album-actions">
+                <button class="add-photo-button" type="button" aria-label="เพิ่มรูปภาพในอัลบั้มสิ่งที่ฉันชอบ">+ เพิ่มรูปภาพ</button>
+                <input class="album-file-input" type="file" accept="image/*" multiple hidden />
+                <p class="album-status" role="status" aria-live="polite"></p>
+              </div>
+            </details>
+          </div>
+          <div class="album-group" aria-labelledby="baworn-albums">
+            <h2 class="album-group-title" id="baworn-albums">อัลบั้มของนายบวรเกียรติ</h2>
+            <details class="album" data-album-id="baworn-my-photos">
+              <summary class="album-cover">
+                <img src="n4.JPG" alt="" />
+                <span class="album-cover-copy">
+                  <span class="album-title">รูปภาพของฉัน</span>
+                  <span class="album-hint" data-photo-count>0 รูปภาพ · กดเพื่อเปิดอัลบั้ม</span>
+                </span>
+                <span class="album-toggle" aria-hidden="true"></span>
+              </summary>
+              <ul class="album-photos" aria-label="รูปภาพในอัลบั้มรูปภาพของนายบวรเกียรติ"></ul>
+              <div class="album-actions">
+                <button class="add-photo-button" type="button" aria-label="เพิ่มรูปภาพในอัลบั้มรูปภาพของนายบวรเกียรติ">+ เพิ่มรูปภาพ</button>
+                <input class="album-file-input" type="file" accept="image/*" multiple hidden />
+                <p class="album-status" role="status" aria-live="polite"></p>
+              </div>
+            </details>
+            <details class="album" data-album-id="baworn-favorite-photos">
+              <summary class="album-cover">
+                <img src="m1.jpg" alt="" />
+                <span class="album-cover-copy">
+                  <span class="album-title">สิ่งที่ฉันชอบ</span>
+                  <span class="album-hint" data-photo-count>0 รูปภาพ · กดเพื่อเปิดอัลบั้ม</span>
+                </span>
+                <span class="album-toggle" aria-hidden="true"></span>
+              </summary>
+              <ul class="album-photos" aria-label="รูปภาพในอัลบั้มสิ่งที่ฉันชอบของนายบวรเกียรติ"></ul>
+              <div class="album-actions">
+                <button class="add-photo-button" type="button" aria-label="เพิ่มรูปภาพในอัลบั้มสิ่งที่ฉันชอบของนายบวรเกียรติ">+ เพิ่มรูปภาพ</button>
+                <input class="album-file-input" type="file" accept="image/*" multiple hidden />
+                <p class="album-status" role="status" aria-live="polite"></p>
+              </div>
+            </details>
+          </div>
         </div>
       </section>
       <dialog class="photo-viewer" aria-label="ดูรูปภาพขนาดใหญ่">
